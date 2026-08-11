@@ -1,0 +1,218 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    backdrop-filter var(--transition);
+}
+
+.navbar--scrolled {
+  background: rgba(8, 9, 12, 0.72);
+  border-bottom-color: var(--border);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--navbar-h);
+}
+
+/* --- Brand --------------------------------------------------------------- */
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.navbar__brand:hover {
+  color: #fff;
+}
+
+.navbar__mark {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--accent-ink);
+  background: var(--gradient-accent);
+  border-radius: 9px;
+  transition: transform var(--transition);
+}
+
+.navbar__brand:hover .navbar__mark {
+  transform: rotate(-6deg) scale(1.05);
+}
+
+.navbar__name {
+  font-size: 0.97rem;
+}
+
+/* --- Desktop nav --------------------------------------------------------- */
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.navbar__link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.navbar__link--active {
+  color: var(--text);
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0.15rem;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* --- Mobile toggle ------------------------------------------------------- */
+
+.navbar__toggle {
+  display: none;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+.navbar__toggle:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+/* --- Mobile panel -------------------------------------------------------- */
+
+.navbar__mobile {
+  display: none;
+  padding: 0.75rem var(--gutter) 1.5rem;
+  background: rgba(10, 12, 16, 0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  animation: menu-in 240ms var(--ease) both;
+}
+
+.navbar__mobile-list {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.navbar__mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  transition:
+    color var(--transition),
+    padding-left var(--transition);
+}
+
+.navbar__mobile-link .icon {
+  opacity: 0;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+  transform: translateX(-6px);
+}
+
+.navbar__mobile-link:hover,
+.navbar__mobile-link--active {
+  color: var(--text);
+  padding-left: 0.85rem;
+}
+
+.navbar__mobile-link--active {
+  color: var(--accent);
+}
+
+.navbar__mobile-link:hover .icon,
+.navbar__mobile-link--active .icon {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Breakpoint ---------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: grid;
+  }
+
+  .navbar__mobile {
+    display: block;
+  }
+
+  .navbar__mobile[hidden] {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar__name {
+    display: none;
+  }
+}

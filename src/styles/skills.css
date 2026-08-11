@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Skills page
+   ========================================================================== */
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.skills__grid > .reveal {
+  display: flex;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+  padding: clamp(1.25rem, 2.5vw, 1.7rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.skill-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.skill-card__head {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.skill-card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+  transition: transform var(--transition);
+}
+
+.skill-card:hover .skill-card__icon {
+  transform: rotate(-6deg);
+}
+
+.skill-card__title {
+  font-size: 1.1rem;
+}
+
+.skill-card__description {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+/* Tags sit directly under the heading; the card stretches to the row height. */
+.skill-card .tag-list {
+  align-content: flex-start;
+}

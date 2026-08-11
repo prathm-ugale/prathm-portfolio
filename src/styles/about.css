@@ -1,0 +1,208 @@
+/* ==========================================================================
+   About page
+   ========================================================================== */
+
+.about__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.about__portrait-wrap {
+  position: sticky;
+  top: calc(var(--navbar-h) + 2rem);
+}
+
+.about__portrait {
+  width: 100%;
+  height: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.about__facts {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.about__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.about__facts .icon {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.about__text p {
+  margin-bottom: 1.15rem;
+  font-size: clamp(1rem, 1.5vw, 1.06rem);
+  color: var(--text-muted);
+}
+
+.about__text p:first-child {
+  color: var(--text);
+}
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* --- Career cards -------------------------------------------------------- */
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.about__card {
+  height: 100%;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.about__card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px);
+}
+
+.about__card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.08rem;
+}
+
+.about__card p {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+}
+
+/* --- Records (education, leadership) ------------------------------------- */
+
+.record-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.record-item {
+  display: flex;
+  gap: 1.1rem;
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition);
+}
+
+.record-item:hover {
+  border-color: var(--border-strong);
+}
+
+.record-item__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+}
+
+.record-item__title {
+  font-size: 1.06rem;
+}
+
+.record-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-top: 0.3rem;
+  font-size: 0.925rem;
+  color: var(--text-muted);
+}
+
+.record-item__duration {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+
+.record-item__detail {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.about__certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1rem;
+}
+
+.about__certs {
+  height: 100%;
+  padding: clamp(1.15rem, 2.4vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+}
+
+.about__certs-heading {
+  margin-bottom: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about__certs ul {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.about__certs li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.about__certs .icon {
+  flex-shrink: 0;
+  margin-top: 0.28rem;
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .about__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .about__portrait-wrap {
+    position: static;
+    max-width: 22rem;
+  }
+}
